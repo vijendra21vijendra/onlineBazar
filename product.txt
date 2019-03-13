@@ -1,0 +1,16 @@
+0 0 samsung 15000 10 0
+0 1 iphone10 80000 20 0
+0 2 nokia1100 1200 10 0
+1 0 erdCharger 250 10 0
+1 1 jblEarphones 900 12 0
+1 1 boatLead 2000 10 0
+2 0 lenevoi3 30000 5 0
+2 1 aceri5 45000 10 0
+2 2 hpi7 70000 10 0
+3 0 toyMercedes 500 5 0
+3 1 toyBoeing 1000 3 0
+4 0 pubgMode 1000 2 0
+4 1 GT5 1000 3 0
+5 0 ovenMicro 3000 4 0
+5 1 teaCattle 1000 5 0
+5 2 inductionKent 3000 3 0

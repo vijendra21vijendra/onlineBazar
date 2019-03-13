@@ -1,0 +1,5 @@
+111 sikar@gmail.com vijendra 9079999751 nagpur 50000 20000
+122 bihar@gmail.com suraj bihar 5412453214 50000 22000
+545 mumbai@gmail.com rishikesh mumbai 5412423144 20000 80000
+848 jaipur@gmail.com keshav jaipur 4512489652 20000 60000
+645 bhopal@gmail.com tripathi bhopal 8796541245 30000 50000
