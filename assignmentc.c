@@ -41,7 +41,7 @@ typedef struct bt{
 	int arrBalance[3];
 }balanceType;
 
-//this is structures for customer Data Base 
+//this is structures for customer Data Base
 
 typedef struct cdb{
 	int id;//id should be unique and should be implemented such %100
@@ -84,7 +84,7 @@ void createProductDataBase()
 	}
 	GDBP = x;
  }
- 
+
  // this just initializes the filed values with null for customer data bases
 void createCustomerDataBase()
 {
@@ -107,7 +107,7 @@ void createCustomerDataBase()
 		int cat1,cat2,available,sold;
 		float cost;
 		char name[20];
-		FILE *fp; 
+		FILE *fp;
 		fp = fopen("product.txt","r");
 		while(n-- >0)
 		{
@@ -134,15 +134,15 @@ void createCustomerDataBase()
 		  }
 		 // printf("%d %d %s %.2f %d %d\n",cat1,cat2,name,cost,available,sold);
 		}
-	fclose(fp);	
+	fclose(fp);
 	}
-	
-	
+
+
 void initializeCustomerDataBase()
 	{
 		int n,d,id,i,j;
 		n=5;
-		FILE *fp; 
+		FILE *fp;
 		fp = fopen("customer.txt","r");
 		customerDataBase *x,*y,*z;
 		char name[20],mobile[11],address[20],email[20];
@@ -171,7 +171,7 @@ void initializeCustomerDataBase()
 		  }
 		  for(i=0;i<3;i++){
 		  x->balanceMode.arrBalance[i] = 0;
-		}	
+		}
 		d = id%100;
 		y = GCDB[d];
 		   if(y==NULL)
@@ -181,14 +181,14 @@ void initializeCustomerDataBase()
 			}
 		else
 		{
-			
+
 			GCDB[d] = x;
 			x->next = y;
 			//printf("collide: ");
 		}
 	//	printf("%d %s %s %s %s %.2f %.2f\n",id,email,name,mobile,address,b1,b2);
 	 }
-	fclose(fp);	
+	fclose(fp);
 	}
 
 
@@ -196,7 +196,7 @@ void initializeCustomerDataBase()
 
 
 
-// this function is for checking that customers is already registered or not 
+// this function is for checking that customers is already registered or not
 //if already registered then return id else return -1
 
 
@@ -235,7 +235,7 @@ int isUserRegistered()
 /// registerUser function that registers anyhow to user and just returns id of the user
 
 
-//it returns true if id found else false 
+//it returns true if id found else false
 int isIdFound(int id)
 {
 	int d;
@@ -270,7 +270,7 @@ int isEmailFound(char email[20])
 		{
 			flag=0;
 		}
-		i++;		
+		i++;
 	}
 	if(flag==0)
 	{
@@ -323,7 +323,7 @@ customerDataBase* createCustomer()
 
 
 
-// it registers user and just return id of user 
+// it registers user and just return id of user
 int registerUser()
 {
 	int flag=1;
@@ -337,7 +337,7 @@ int registerUser()
 		scanf("%s",email);
 		int d;
 		d = id%100;
-		
+
 		if(!isIdFound(id))
 		{
 			if(!isEmailFound(email))
@@ -421,7 +421,7 @@ int callCat2Show(int cat1)
 		break;
 		case 5:
 			{
-				printf("\t\t0. for Ovens\n\t\t1. for cattles\n\t\t3. for Inductions: ");
+				printf("\t\t0. for Ovens\n\t\t1. for cattles\n\t\t2. for Inductions: ");
 			}
         break;
 	}
@@ -430,7 +430,7 @@ int callCat2Show(int cat1)
 }
 
 
-//it just prints the wishlist product information and takes input of *product which is in customer->wishlist 
+//it just prints the wishlist product information and takes input of *product which is in customer->wishlist
 void printW(product *p)
 {
 	printf("%d %s are here \n",p->quantity,p->nameOfProduct);
@@ -439,7 +439,7 @@ void printW(product *p)
 void printPurchasedList(int id)
 {
 	customerDataBase *c = GCDB[id%100];
-	
+
 	if(c==NULL)
 	{
 		printf("customer not present\n");
@@ -466,7 +466,7 @@ void printPurchasedList(int id)
 				printW(p);
 				p = p->next;
 			}
-		}	
+		}
      }
 	printf("\n");
 }
@@ -474,7 +474,7 @@ void printPurchasedList(int id)
 void printWishList(int id)
 {
 	customerDataBase *c = GCDB[id%100];
-	
+
 	if(c==NULL)
 	{
 		printf("customer not present\n");
@@ -501,7 +501,7 @@ void printWishList(int id)
 				printW(p);
 				p = p->next;
 			}
-		}	
+		}
      }
 	printf("\n");
 }
@@ -513,12 +513,12 @@ void printP(dataBaseProduct *p)
 	printf("%d %s are available with %.2f rupees per item\n",p->available,p->nameOfProduct,p->cost);
 }
 
-// it prints product list that are present if cat1 and cat2 are present 
+// it prints product list that are present if cat1 and cat2 are present
 void printProductList(int cat1,int cat2)
 {
 	int arr[] = {3,2,3,2,2,3};
 	if(cat1>=0 && cat1<=5 && (cat2>=0 && cat2<arr[cat1]))
-	{	
+	{
 		dataBaseProduct *x;
 		x = GDBP[cat1][cat2];
 		if(x==NULL)
@@ -570,9 +570,9 @@ void printCustomerInformation(int id)
 		}
 		else
 		{
-		  printf("customer not present in dataBase\n");	
+		  printf("customer not present in dataBase\n");
 		}
-     } 
+     }
 	printf("\n");
 }
 
@@ -609,7 +609,7 @@ void printFreqPurForUser(int id)
 			}
 			// now i have to print this from an array
 			if(max>0){
-			printf("%s cat1: %d and cat2: %d is purchased max times\n",GCArray[p][q],p,q);				
+			printf("%s cat1: %d and cat2: %d is purchased max times\n",GCArray[p][q],p,q);
 			}else{
 				printf("nothing puchased till now\n");
 			}
@@ -647,13 +647,13 @@ void printFreqPurForAllUser()
 					}
 				}
 			}
-			x = x->next;		
+			x = x->next;
 		}
 		k+=1;
 	}
 	// now i have to print this from an array
 	if(max>0){
-	printf("%s is purchased max times by id: %d\n",GCArray[p][q],id);	
+	printf("%s is purchased max times by id: %d\n",GCArray[p][q],id);
 	}else{
 		printf("nothing puchased till now by any customer\n");
 	}
@@ -668,19 +668,23 @@ void printCustomer6f()
 	int arr[100][2];
 	// where first row represents maxpurchase and second represents id and i have to sort basis on val in decreasing order
 	k=0;
+	i=0;
 	while(k<100)
 	{
 		x = GCDB[k];
 		while(x!=NULL)
 		{
-			arr[i][0] = x->totalPurchase;
-			arr[i][1] = x->id;
-			i++;
+			if(x->totalPurchase>0){
+				arr[i][0] = x->totalPurchase;
+				arr[i][1] = x->id;
+				i++;
+			}
 			x = x->next;
 		}
 		k+=1;
 	}
 	p=i;
+	printf("%d is total\n",p);
 	int sorted=0;
 	int temp1,temp2;
 	for(i=0;i<p-1 && sorted==0;i++)
@@ -688,7 +692,7 @@ void printCustomer6f()
 		sorted=1;
 		for(j=0;j<p-1;j++)
 		{
-		  if(arr[j][0] < arr[j+1][0])
+		  if(arr[j][0] > arr[j+1][0])
 		  {
 		  	temp1 = arr[j][0];
 		  	temp2 = arr[j][1];
@@ -697,12 +701,13 @@ void printCustomer6f()
 		  	arr[j+1][0] = temp1;
 		  	arr[j+1][1] = temp2;
 		  	sorted=0;
-		  }	
+		  }
 		}
 	}
+
 	if(arr[0][0]!=0)
 	{
-		for(i=0;i<p && arr[i][0]>0;i++)
+		for(i=p-1;i>=0;i--)
 		{
 			printf("%d times\n",arr[i][0]);
 			printCustomerInformation(arr[i][1]);
@@ -716,7 +721,7 @@ void printCustomer6f()
 
 
 
-//function for odering 
+//function for odering
 void order(int id,int cat1,int cat2)
 {
 	char proName[20];
@@ -806,19 +811,18 @@ void order(int id,int cat1,int cat2)
 						{
 							printf("wrong payment option\n");
 						}
-					
 					// add into purchased list
 					}
 						else
 						{
 							printf(" sorry for inconvenince we don't have enough items\n");
-						}	
-					}		
+						}
+					}
 				}
 					//now c contains the user entries
 			}
 	// we have to do something that it should come here after ordering something
-	
+	c->totalPurchase+=1;
 	c->favItems[cat1][cat2]+=1;
 	// that if u entered then you have to order
 	// now i have to just immplement it in the purchased
@@ -901,7 +905,7 @@ void addWishList(int id,int cat1,int cat2)
 				}
 				else
 				{
-					
+
 					if(db->available >= quantity)
 					{
 						// it will just add items into wish list nothing more than that
@@ -913,17 +917,17 @@ void addWishList(int id,int cat1,int cat2)
 					{
 						printf("we don't have so enough products\n");
 					}
-					
+
 				}
 				// now db contains product in product data bases
-				// now i have a special problem of remember things		
+				// now i have a special problem of remember things
 			}
 }
-	// we have to do something that it should come here after add in wish list 
-	
+	// we have to do something that it should come here after add in wish list
+
 	// that if u entered then you have to add something into wish list
-	// now i have to just immplement it in the wish list 
-	
+	// now i have to just immplement it in the wish list
+
 	product *tp,*tp1;
 	tp1 = tp = c->wishList;
 	if(tp==NULL)
@@ -987,7 +991,7 @@ void returnProduct(int id)
 			{
 				printf("customer is not present\n");
 				return;
-			}	
+			}
 	product *tp,*tp1;
 	tp1 = tp = c->purchasedList;
 	if(tp==NULL)
@@ -1004,7 +1008,7 @@ void returnProduct(int id)
 		if(strcmp(tp->nameOfProduct,proName)==0)
 		{
 			// added balance and deleted node if no quantity else only reduced quantity
-			
+
 			if(quantity <= tp->quantity)
 			{
 				c->balanceMode.upi += quantity*tp->cost;
@@ -1025,7 +1029,7 @@ void returnProduct(int id)
 					db = db->next;
 				}
 				db->available+=quantity;
-				db->sold-=quantity;	
+				db->sold-=quantity;
 			}
 			else
 			{
@@ -1122,11 +1126,11 @@ int main(int argc, char *argv[]) {
 			  }
 		   }
 		   printf("\t\tenter 1 if you want to continue with addWishList , order or returnProduct\n\telse enter 0: ");
-		   scanf("%d",&flag2);		
+		   scanf("%d",&flag2);
 	}
 	  // else don't order
 	printf("\t\tenter\n\t\t 1. for logout and to login in other user Account\n\t\t0. for  enter into another interface of type admin: ");
-	scanf("%d",&flag1);	
+	scanf("%d",&flag1);
   }
   printf("\t\t\tadmin Mode On now You can access these things enter: \n");
   flag1=1;
@@ -1180,12 +1184,12 @@ int main(int argc, char *argv[]) {
 		  printCustomer6f();
   	 	 break;
 		}
-		default: printf("wrong input\n"); break;	
+		default: printf("wrong input\n"); break;
 	}
   	printf("\t\tenter: \n\t\t1 for be in this admin mode \n\t\t0. for close: ");
   	scanf("%d",&flag1);
   }
-  
+
 	printf("successful");
 	return 0;
 }
